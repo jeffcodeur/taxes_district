@@ -4,14 +4,32 @@
 @theme {
   --color-primary: #0565AD;
   --color-secondary: #FF772C;
+  --color-dark: #14183E;
+  --color-title: #374151;
 }
 
 html, body {
-  /* SF Pro Text n’est pas disponible sur Google Fonts ; on charge Inter en fallback moderne */
-  font-family: 'SF Pro Text', 'Inter', system-ui, -apple-system, "outfit", sans-serif;
+  font-family: -apple-system, 'Inter', "outfit", sans-serif;
   font-size: 16px;
+  line-height: 1.875;
+  margin: 0;
+  background-color: #FAFAFA;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+.footer-section {
+  position: relative;
+  background: url('/images/footer/footer-bg.png') center/cover no-repeat;
+  z-index: 1;
+}
+
+.footer-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(220, 245, 255, .97);
+  z-index: -1;
 }
