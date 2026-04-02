@@ -30,7 +30,7 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="relative z-50 border-b border-gray-100 bg-white">
+    <header className="relative z-50 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
         {/* LEFT */}
         <div className="flex min-w-0 items-center gap-2 sm:gap-4 md:justify-self-start">
@@ -51,7 +51,7 @@ export default function Header() {
               className="h-[1em] w-auto shrink-0"
             />
 
-            <span className="truncate font-semibold text-gray-700">
+            <span className="truncate text-base font-semibold text-gray-700 sm:text-lg md:text-xl">
               taxes.district.<span className="text-secondary">ci</span>
             </span>
           </div>
