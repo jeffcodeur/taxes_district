@@ -1,5 +1,7 @@
 import Breadcrumb from "../../components/layout/Breadcrumb";
 import SectionTitle from "../../components/layout/SectionTitle";
+import Button from "../../components/ui/Button";
+import TextField from "../../components/ui/TextField";
 
 export const metadata = {
   title: "Enregistrer mon véhicule",
@@ -20,33 +22,34 @@ export default function EnregistrerMonVehiculePage() {
         subtitle="Saisissez le numéro d’immatriculation de votre véhicule et commencez"
       />
 
-      <section>
-        <div className="w-2xl mx-auto flex justify-around gap-3">
-          <img src="/images/plaque2.jpg" alt="" />
-          <img src="/images/plaque.jpg" alt="" />
-        </div>
-      </section>
-
-      <section className="bg-white w-4xl mx-auto my-12 py-12 px-6 rounded-xl">
-        <div className="max-w-4xl mx-auto">
-          {/* Input */}
-          <div className="mb-10">
-            <label htmlFor="" className="font-bold text-xl">
-              Numero de plaque d’immatriculation
-            </label>
-            <input
-              type="text"
-              placeholder="AA - 020 - AA"
-              className="w-full mt-4 px-6 py-5 text-lg text-gray-700 placeholder-gray-400 bg-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+      <div className="px-4 sm:px-6">
+        <section>
+          <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8 md:gap-12 lg:gap-16">
+            <img
+              src="/images/plaque2.jpg"
+              alt=""
+              className="h-auto w-full max-w-60 object-contain sm:max-w-52 md:max-w-56"
+            />
+            <img
+              src="/images/plaque.jpg"
+              alt=""
+              className="h-auto w-full max-w-60 object-contain sm:max-w-52 md:max-w-56"
             />
           </div>
+        </section>
 
-          {/* Button */}
-          <button className="bg-primary hover:bg-[#175885] text-white text-lg font-medium px-22 py-5 rounded-lg transition">
-            Commencer
-          </button>
-        </div>
-      </section>
+        <section className="mx-auto my-8 w-full max-w-4xl rounded-xl bg-white px-4 py-8 sm:my-12 sm:px-6 sm:py-12">
+          <div className="mx-auto max-w-4xl">
+            <TextField
+              id="plaque-immatriculation"
+              label="Numero de plaque d’immatriculation"
+              placeholder="AA - 020 - AA"
+            />
+
+            <Button>Commencer</Button>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

@@ -26,7 +26,14 @@ export default function LoginPage() {
             className="mr-6"
             priority
           />
-          <Image src="/images/2.svg" alt="logo" width={20} height={20} className="w-5 mr-1 h-auto" priority />
+          <Image
+            src="/images/2.svg"
+            alt="logo"
+            width={20}
+            height={20}
+            className="w-5 mr-1 h-auto"
+            priority
+          />
           <p className="font-semibold text-dark text-lg">
             taxes.district<span className="text-secondary">.ci</span>
           </p>

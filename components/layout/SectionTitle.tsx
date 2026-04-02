@@ -9,15 +9,17 @@ type SectionTitleProps = {
 export default function SectionTitle({
   title,
   subtitle,
-  sectionClassName = "max-w-4xl",
+  sectionClassName = "max-w-4xl px-4 sm:px-6",
   titleClassName = "text-primary",
   subtitleClassName,
 }: SectionTitleProps) {
   return (
     <section
-      className={`py-14 mx-auto flex flex-col items-center justify-center text-center ${sectionClassName}`}
+      className={`py-10 sm:py-14 mx-auto flex flex-col items-center justify-center text-center ${sectionClassName}`}
     >
-      <h2 className={`font-bold text-5xl leading-[1.2] ${titleClassName}`}>
+      <h2
+        className={`font-bold text-3xl leading-[1.2] sm:text-4xl md:text-5xl ${titleClassName}`}
+      >
         {title}
       </h2>
       <p
