@@ -7,7 +7,7 @@ import TextField from "../../../components/ui/TextField";
 export default function LoginPage() {
   return (
     <div className="flex h-screen">
-      <div className="relative h-full w-1/2 bg-primary overflow-hidden flex items-center justify-center">
+      <div className="relative h-full w-1/2 bg-primary overflow-hidden flex items-center justify-center sm:block hidden">
         <Image
           src="/images/vector.svg"
           alt=""
@@ -57,7 +57,7 @@ export default function LoginPage() {
         />
       </div>
 
-      <div className="h-full w-1/2 flex items-center bg-white p-18">
+      <div className="h-full w-full sm:w-1/2 flex items-center bg-white p-18">
         <div className="w-full">
           <h1 className="font-bold text-4xl leading-none tracking-normal text-dark mb-8">
             Connexion
