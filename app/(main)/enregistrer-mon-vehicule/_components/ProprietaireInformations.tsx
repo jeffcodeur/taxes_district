@@ -32,12 +32,12 @@ export default function ProprietaireInformations({ data, onChange }: Props) {
 
       {data.typePersonne === "physique" && (
         <>
-          <div className="grid gap-16 md:grid-cols-2">
+          <div className="grid gap-6 md:gap-16 md:grid-cols-2">
             <TextField id="nom" label="Nom" placeholder="" required value={data.nom} onChange={(e) => update("nom", e.target.value)} />
             <TextField id="prenoms" label="Prénoms" placeholder="" required value={data.prenoms} onChange={(e) => update("prenoms", e.target.value)} />
           </div>
 
-          <div className="grid gap-16 md:grid-cols-2">
+          <div className="grid gap-6 md:gap-16 md:grid-cols-2">
             <TextField id="numero-cni" label="Numéro de CNI" placeholder="" required value={data.numeroCNI} onChange={(e) => update("numeroCNI", e.target.value)} />
             <PhoneField id="telephone" label="Numéro de téléphone" value={data.telephone} onChange={(e) => update("telephone", e.target.value)} />
           </div>
@@ -58,7 +58,7 @@ export default function ProprietaireInformations({ data, onChange }: Props) {
 
       {data.typePersonne === "morale" && (
         <>
-          <div className="grid gap-16 md:grid-cols-2">
+          <div className="grid gap-6 md:gap-16 md:grid-cols-2">
             <TextField id="numero-rccm" label="Numéro RCCM" placeholder="" required value={data.numeroRCCM} onChange={(e) => update("numeroRCCM", e.target.value)} />
             <PhoneField id="telephone-entreprise" label="Numéro de téléphone" value={data.telephone} onChange={(e) => update("telephone", e.target.value)} />
           </div>

@@ -22,17 +22,17 @@ export default function VehiculeInformations({ data, onChange }: Props) {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-16 md:grid-cols-2">
+      <div className="grid gap-6 md:gap-16 md:grid-cols-2">
         <TextField id="marque" label="Marque du véhicule" placeholder="Suzuki" required value={data.marque} onChange={(e) => update("marque", e.target.value)} />
         <TextField id="modele" label="Modèle du véhicule" placeholder="Dzire" required value={data.modele} onChange={(e) => update("modele", e.target.value)} />
       </div>
 
-      <div className="grid gap-16 md:grid-cols-2">
+      <div className="grid gap-6 md:gap-16 md:grid-cols-2">
         <TextField id="date-mise-en-circulation" label="Date de mise en circulation" placeholder="05 - 03 - 2025" required value={data.dateMiseEnCirculation} onChange={(e) => update("dateMiseEnCirculation", e.target.value)} />
         <TextField id="numero-cartegrise" label="Numéro de carte grise" placeholder="Ex: 050000000" type="number" required value={data.numeroCGrise} onChange={(e) => update("numeroCGrise", e.target.value)} />
       </div>
 
-      <div className="grid gap-16 md:grid-cols-2">
+      <div className="grid gap-6 md:gap-16 md:grid-cols-2">
         <RadioGroup
           label="Utilisation"
           name="utilisation"

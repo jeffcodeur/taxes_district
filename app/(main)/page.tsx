@@ -33,8 +33,8 @@ return (
 
     <section className="max-w-7xl mx-auto px-6 pt-10 pb-16 md:pb-20 text-center">
         <h1
-            className="max-w-[980px] mx-auto text-center font-bold text-4xl leading-tight tracking-[-0.02em] text-primary md:text-6xl md:leading-tight">
-            Service de paiement des<br />
+            className="max-w-[780px] mx-auto text-center font-bold text-4xl leading-tight tracking-[-0.02em] text-primary md:text-6xl md:leading-tight">
+            Service de paiement des
             taxes du District Autonome d&apos;Abidjan
         </h1>
         <p className="max-w-[1050px] mx-auto mt-6 text-base text-[#3A4660] leading-relaxed md:text-lg md:leading-relaxed">
@@ -57,7 +57,7 @@ return (
     </section>
 
     <section className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-center leading-tight text-title">
+        <h2 className="text-3xl md:text-5xl font-bold text-center leading-tight text-title">
             Toutes vos taxes disponibles
             <br />
             en un seul endroit
@@ -83,7 +83,7 @@ return (
         <div className="max-w-6xl mx-auto px-6 flex flex-col gap-24 md:flex-row md:items-stretch">
             <div className="md:basis-[40%]">
                 <p className="text-lg font-semibold text-gray-500">Comment ça marche ?</p>
-                <h2 className="mt-5 text-3xl font-extrabold leading-[1.4] tracking-[-0.02em] text-[#1F2A44]">
+                <h2 className="text-2xl md:text-3xl font-extrabold leading-[1.4] tracking-[-0.02em] text-[#1F2A44]">
                     Quelques vidéos tutoriels pour faciliter la prise en main de votre plateforme
                 </h2>
             </div>
@@ -116,7 +116,7 @@ return (
     </section>
 
     <section className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="text-5xl font-bold text-title text-center leading-tight">
+        <h2 className="text-3xl md:text-5xl font-bold text-title text-center leading-tight">
           Les autres moyens de <br /> payer vos taxes
         </h2>
 
@@ -176,7 +176,7 @@ return (
       </section>
 
     <section className="max-w-4xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="text-5xl font-bold text-title text-center">Questions fréquentes</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-title text-center">Questions fréquentes</h2>
 
         <div className="mt-16 space-y-3">
             {[
