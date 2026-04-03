@@ -24,7 +24,7 @@ export default function RadioGroup({
   return (
     <div className={className}>
       <label className="text-sm font-bold sm:text-xl mb-4 block">{label}</label>
-      <div className="flex items-center gap-6">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-6">
         {options.map((option) => (
           <div key={option.id} className="flex items-center gap-3">
             <input
