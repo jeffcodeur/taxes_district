@@ -2,55 +2,84 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiLock, FiMenu, FiX } from "react-icons/fi";
+import { usePathname } from "next/navigation";
 
-const navLinks: {
-  href: string;
-  label: string;
-  active?: boolean;
-}[] = [
-  { href: "/", label: "Accueil", active: true },
-  { href: "#", label: "Taxes" },
-  { href: "#", label: "Contacts" },
+const navLinks = [
+  { href: "/", label: "Accueil" },
+  { href: "/taxes", label: "Taxes" },
+  { href: "/contacts", label: "Contacts" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const menuRef = useRef<HTMLDivElement>(null);
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === href : pathname.startsWith(href);
+
+  // Fermeture menu au resize
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMenuOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Overflow body
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
 
+  // Fermeture au clic extérieur
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    if (menuOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
+  // Fermeture à la touche Escape
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    if (menuOpen) document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
   return (
-    <header className="relative z-50 bg-white">
+    <header className="relative z-50 bg-white" ref={menuRef}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
         {/* LEFT */}
         <div className="flex min-w-0 items-center gap-2 sm:gap-4 md:justify-self-start">
           <Image
             src="/images/logo-district.png"
-            alt="Logo district"
+            alt="Logo district autonome d'Abidjan"
             width={60}
             height={60}
             className="h-10 w-10 shrink-0 sm:h-14 sm:w-14 md:h-[60px] md:w-[60px]"
+            priority
           />
 
-          <div className="flex min-w-0 items-center gap-1.5 text-base sm:gap-2 sm:text-lg md:text-xl">
+          <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
             <Image
               src="/images/2.svg"
               alt=""
+              aria-hidden
               width={25}
               height={28}
-              className="h-[1em] w-auto shrink-0"
+              className="h-[1.2em] w-auto shrink-0"
             />
-
             <span className="truncate text-base font-semibold text-gray-700 sm:text-lg md:text-xl">
               taxes.district.<span className="text-secondary">ci</span>
             </span>
@@ -59,16 +88,19 @@ export default function Header() {
 
         {/* CENTER — desktop */}
         <nav
-          className="hidden items-center gap-6 text-gray-700 font-bold lg:gap-10 md:flex md:justify-self-center"
+          className="hidden md:flex items-center gap-6 lg:gap-10 font-bold text-gray-700 md:justify-self-center"
           aria-label="Navigation principale"
         >
-          {navLinks.map(({ href, label, active }) => (
+          {navLinks.map(({ href, label }) => (
             <Link
-              key={href + label}
+              key={label}
               href={href}
               className={
-                active ? "text-primary font-bold" : "hover:text-primary"
+                isActive(href)
+                  ? "text-primary font-bold"
+                  : "hover:text-primary transition-colors"
               }
+              aria-current={isActive(href) ? "page" : undefined}
             >
               {label}
             </Link>
@@ -83,12 +115,12 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             <FiLock className="size-[1em] shrink-0" aria-hidden />
-            <span className="max-[380px]:sr-only">Votre espace</span>
+            <span className="hidden min-[380px]:inline">Votre espace</span>
           </Link>
 
           <button
             type="button"
-            className="inline-flex rounded-md p-2 text-gray-700 hover:bg-gray-100 md:hidden"
+            className="inline-flex rounded-md p-2 text-gray-700 hover:bg-gray-100 transition-colors md:hidden"
             onClick={() => setMenuOpen((o) => !o)}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
@@ -103,24 +135,26 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile nav — avec transition */}
       <div
         id="mobile-nav"
-        className={`border-t border-gray-100 md:hidden ${menuOpen ? "block" : "hidden"}`}
+        role="region"
+        aria-label="Navigation mobile"
+        className={`overflow-hidden border-t border-gray-100 transition-all duration-200 ease-in-out md:hidden ${
+          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
-        <nav
-          className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6"
-          aria-label="Navigation mobile"
-        >
-          {navLinks.map(({ href, label, active }) => (
+        <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
+          {navLinks.map(({ href, label }) => (
             <Link
-              key={href + label}
+              key={label}
               href={href}
-              className={`rounded-lg px-3 py-3 text-base font-bold ${
-                active
+              className={`rounded-lg px-3 py-3 text-base font-bold transition-colors ${
+                isActive(href)
                   ? "bg-primary/10 text-primary"
                   : "text-gray-700 hover:bg-gray-50"
               }`}
+              aria-current={isActive(href) ? "page" : undefined}
               onClick={() => setMenuOpen(false)}
             >
               {label}
