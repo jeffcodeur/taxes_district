@@ -4,6 +4,7 @@ interface FileUploadFieldProps {
   accept?: string;
   onChange?: (file: File | null) => void;
   className?: string;
+  customizableText?: string;
 }
 
 export default function FileUploadField({ 
@@ -11,7 +12,8 @@ export default function FileUploadField({
   label, 
   accept,
   onChange,
-  className = "" 
+  className = "",
+  customizableText = "votre carte" 
 }: FileUploadFieldProps) {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
@@ -42,7 +44,7 @@ export default function FileUploadField({
         <div className="flex items-center justify-center gap-2 text-xl text-gray-700">
           <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-          </svg> Cliquez ici pour Joindre <span className="font-semibold text-gray-700">votre carte</span> grise ou glissez-déposer
+          </svg> Cliquez ici pour Joindre <span className="font-semibold text-gray-700">{customizableText}</span> grise ou glissez-déposer
         </div>
 
         <input

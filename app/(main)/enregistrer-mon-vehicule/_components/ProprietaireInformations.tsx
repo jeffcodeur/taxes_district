@@ -39,7 +39,7 @@ export default function ProprietaireInformations({ data, onChange }: Props) {
 
           <div className="grid gap-16 md:grid-cols-2">
             <TextField id="numero-cni" label="Numéro de CNI" placeholder="" required value={data.numeroCNI} onChange={(e) => update("numeroCNI", e.target.value)} />
-            <PhoneField id="telephone" label="Numéro de téléphone" required value={data.telephone} onChange={(e) => update("telephone", e.target.value)} />
+            <PhoneField id="telephone" label="Numéro de téléphone" value={data.telephone} onChange={(e) => update("telephone", e.target.value)} />
           </div>
 
           <div>
@@ -50,6 +50,7 @@ export default function ProprietaireInformations({ data, onChange }: Props) {
             id="cni"
             label=""
             accept="image/*,.pdf"
+            customizableText="votre CNI"
             onChange={(file) => update("cniFile", file)}
           />
         </>
@@ -59,7 +60,7 @@ export default function ProprietaireInformations({ data, onChange }: Props) {
         <>
           <div className="grid gap-16 md:grid-cols-2">
             <TextField id="numero-rccm" label="Numéro RCCM" placeholder="" required value={data.numeroRCCM} onChange={(e) => update("numeroRCCM", e.target.value)} />
-            <PhoneField id="telephone-entreprise" label="Numéro de téléphone" required value={data.telephone} onChange={(e) => update("telephone", e.target.value)} />
+            <PhoneField id="telephone-entreprise" label="Numéro de téléphone" value={data.telephone} onChange={(e) => update("telephone", e.target.value)} />
           </div>
 
           <div>

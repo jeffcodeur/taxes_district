@@ -24,7 +24,7 @@ export default function PhoneField({
 }: PhoneFieldProps) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-bold sm:text-base text-gray-800 block mb-4">
+      <label htmlFor={id} className="text-sm font-bold sm:text-xl">
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
       </label>

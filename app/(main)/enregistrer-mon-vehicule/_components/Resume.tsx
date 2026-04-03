@@ -12,9 +12,7 @@ export default function Resume({ plaque, vehicule, proprietaire, personnes }: Re
   return (
     <>
       <div className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
-        <h2 className="text-2xl font-bold text-accent">Informations du véhicule</h2>
-
-        <ReadOnlyField label="Plaque d'immatriculation" value={plaque} />
+        <h2 className="text-2xl font-bold text-secondary">Informations du véhicule</h2>
 
         <div className="grid gap-6 md:grid-cols-2">
           <ReadOnlyField label="Marque du véhicule" value={vehicule.marque} />
@@ -41,7 +39,7 @@ export default function Resume({ plaque, vehicule, proprietaire, personnes }: Re
       </div>
 
       <div className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
-        <h2 className="text-2xl font-bold text-gray-900">Informations du propriétaire</h2>
+        <h2 className="text-2xl font-bold text-secondary">Informations du propriétaire</h2>
 
         <ReadOnlyField
           label="Type de personne"
@@ -71,7 +69,7 @@ export default function Resume({ plaque, vehicule, proprietaire, personnes }: Re
 
       {personnes.map((personne, index) => (
         <div key={personne.id} className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
-          <h2 className="text-2xl font-bold text-accent">Personne {index + 1}</h2>
+          <h2 className="text-2xl font-bold text-secondary">Personne {index + 1}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <ReadOnlyField label="Nom et prénoms" value={personne.nomPrenoms} />
             <ReadOnlyField label="Rôle" value={personne.role} />
