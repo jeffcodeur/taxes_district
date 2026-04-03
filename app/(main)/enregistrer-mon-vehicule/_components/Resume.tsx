@@ -6,81 +6,80 @@ import SectionTitle from "../../../../components/layout/SectionTitle";
 export default function Resume() {
   return (
     <>
-      <SectionTitle
-        title="Résumé"
-        subtitle=""
-        sectionClassName="py-0 mb-8"
-        titleClassName="text-gray-800"
-      />
 
       {/* Informations du véhicule */}
-      <div className="bg-white rounded-xl p-8 mb-6 sm:p-10">
-        <h2 className="text-xl font-bold text-[#F97316] mb-6">Informations du véhicule</h2>
+      <div className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
+        <h2 className="text-2xl font-bold text-[#F97316]">Informations du véhicule</h2>
         
-        <div className="grid gap-16 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Marque du véhicule</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Marque du véhicule</label>
             <input
               type="text"
-              value="Toyota"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Modèle du véhicule</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Modèle du véhicule</label>
             <input
               type="text"
-              value="Corolla"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
-            />
-          </div>
-        </div>
-
-        <div className="grid gap-16 md:grid-cols-2">
-          <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Date de mise en circulation</label>
-            <input
-              type="text"
-              value="15/03/2020"
-              readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
-            />
-          </div>
-          <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Numéro de carte grise</label>
-            <input
-              type="text"
-              value="AB-1234-CI"
-              readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
         </div>
 
-        <div className="grid gap-16 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Utilisation</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Date de mise en circulation</label>
+            <input
+              type="text"
+              value=""
+              readOnly
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
+            />
+          </div>
+          <div>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Numéro de carte grise</label>
+            <input
+              type="text"
+              value=""
+              readOnly
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
+            />
+          </div>
+        </div>
+
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-[200px_1fr_200px]">
+          <div>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Utilisation</label>
             <input
               type="text"
               value="VTC"
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Préciser</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Préciser</label>
             <input
               type="text"
-              value="Transport de personnes"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
-          <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800"></label>
-            <button className="mt-4 w-full rounded-lg bg-gray-500 px-4 py-4 text-base text-white font-medium sm:px-6 sm:py-5 sm:text-lg flex items-center justify-center gap-2">
+          <div className="flex items-end">
+            <button className="w-full rounded-lg bg-gray-500 px-4 py-4 text-base text-white font-medium flex items-center justify-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
               </svg>
@@ -91,115 +90,127 @@ export default function Resume() {
       </div>
 
       {/* Type de personne */}
-      <div className="bg-white rounded-xl p-8 mb-6 sm:p-10">
-        <h2 className="text-xl font-bold text-gray-800 mb-6">Type de personne</h2>
-        <SelectField
-          id="type-personne-resume"
-          label=""
-          defaultValue="physique"
-          options={[
-            { value: "physique", label: "Personne physique" },
-            { value: "morale", label: "Personne moral (Entreprise)" }
-          ]}
-          className="max-w-xs"
-          selectClassName="border border-[#F97316] bg-white"
-          disabled
-        />
+      <div className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
+        <h2 className="text-2xl font-bold text-gray-900">Type de personne</h2>
+        
+        <div className="max-w-xs">
+          <SelectField
+            id="type-personne-resume"
+            label=""
+            defaultValue="physique"
+            options={[
+              { value: "physique", label: "Personne physique" },
+              { value: "morale", label: "Personne moral (Entreprise)" }
+            ]}
+            selectClassName="border border-[#F97316]"
+            style={{ background: 'rgba(254, 236, 217, 0.23)' }}
+            disabled
+          />
+        </div>
 
-        <div className="grid gap-16 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Nom</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Nom</label>
             <input
               type="text"
-              value="KOUASSI"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Prénoms</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Prénoms</label>
             <input
               type="text"
-              value="KONAN JEAN"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Numéro CNI</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Numéro CNI</label>
             <input
               type="text"
-              value="CI2020123456"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
         </div>
 
-        <div className="grid gap-16 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Numéro de téléphone</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Numéro de téléphone</label>
             <input
               type="text"
-              value="+225 07 12 34 56 78"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Adresse e-mail</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Adresse e-mail</label>
             <input
               type="text"
-              value="konan.jean@email.ci"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
         </div>
       </div>
 
       {/* Personne 1 */}
-      <div className="bg-white rounded-xl p-8 mb-6 sm:p-10">
-        <h2 className="text-xl font-bold text-[#F97316] mb-6">Personne 1</h2>
+      <div className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
+        <h2 className="text-2xl font-bold text-[#F97316]">Personne 1</h2>
         
-        <div className="grid gap-16 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Nom</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Nom</label>
             <input
               type="text"
-              value="YAO MARIE"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Rôle</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Rôle</label>
             <input
               type="text"
-              value="Conducteur secondaire"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
         </div>
 
-        <div className="grid gap-16 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Numéro de téléphone</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Numéro de téléphone</label>
             <input
               type="text"
-              value="+225 05 98 76 54 32"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
           <div>
-            <label className="text-sm font-bold sm:text-base text-gray-800">Adresse e-mail</label>
+            <label className="text-base font-semibold text-gray-900 block mb-3">Adresse e-mail</label>
             <input
               type="text"
-              value="yao.marie@email.ci"
+              value=""
               readOnly
-              className="mt-4 w-full rounded-lg bg-white border border-[#F97316] px-4 py-4 text-base text-gray-700 sm:px-6 sm:py-5 sm:text-lg"
+              className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
+              style={{ background: 'rgba(254, 236, 217, 0.23)' }}
             />
           </div>
         </div>

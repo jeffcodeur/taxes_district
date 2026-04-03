@@ -23,9 +23,10 @@ return (
                 className="inline-flex h-14 min-w-[280px] items-center justify-center rounded-xl border-2 border-primary bg-white px-8 text-base font-semibold text-primary transition hover:bg-[#eef7ff] md:text-lg">
             Enregistrer mon véhicule
             </Link>
-            <button className="h-14 min-w-[280px] rounded-xl bg-primary px-8 text-base font-semibold text-white transition hover:bg-[#045591] md:text-lg">
+            <Link href="/payer-ma-taxe"
+                className="inline-flex h-14 min-w-[280px] items-center justify-center rounded-xl bg-primary px-8 text-base font-semibold text-white transition hover:bg-[#045591] md:text-lg">
                 Payer ma taxe
-            </button>
+            </Link>
         </div>
     </section>
 

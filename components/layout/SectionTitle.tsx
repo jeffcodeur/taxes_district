@@ -4,11 +4,13 @@ type SectionTitleProps = {
   sectionClassName?: string;
   titleClassName?: string;
   subtitleClassName?: string;
+  sepatorText?: string;
 };
 
 export default function SectionTitle({
   title,
   subtitle,
+  sepatorText,
   sectionClassName = "max-w-4xl px-4 sm:px-6",
   titleClassName = "text-primary",
   subtitleClassName,
@@ -22,6 +24,7 @@ export default function SectionTitle({
       >
         {title}
       </h2>
+      {sepatorText && <span className="mt-3 text-lg font-normal uppercase text-gray-400 tracking-[.5em]">{sepatorText}</span>}
       <p
         className={`mt-4 text-[1.7rem] font-medium not-italic leading-[1.533] tracking-[-0.04em] [leading-trim:cap-height]${subtitleClassName ? ` ${subtitleClassName}` : ""}`}
       >

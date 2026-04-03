@@ -101,7 +101,6 @@ export default function EnregistrerMonVehiculePage() {
             subtitleClassName="font-normal"
           />
 
-          {/* Formulaires */}
           <div className="px-4 sm:px-6">
             <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-12 py-8 sm:my-12 sm:px-14 sm:py-12">
 
@@ -122,7 +121,7 @@ export default function EnregistrerMonVehiculePage() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-                {step === 3 ? "< Retour" : "Précédent"}
+                Précédent
               </button>
               {step <= 3 && (
                 <Button onClick={() => setStep(step + 1)} className="!py-2 !text-base sm:!py-3">Suivant</Button>
@@ -134,11 +133,16 @@ export default function EnregistrerMonVehiculePage() {
 
       {step === 4 && (
         <div className="px-4 sm:px-6">
-          <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-12 py-8 sm:my-12 sm:px-14 sm:py-12">
+           <SectionTitle
+        title="Résumé"
+        subtitle=""
+        sectionClassName="py-12"
+        titleClassName="text-[#374151]"
+      />
+          <section className="mx-auto w-full max-w-4xl rounded-xl ">
             <Resume />
           </section>
 
-          {/* Navigation */}
           <div className="mx-auto mt-8 mb-8 flex items-center justify-between gap-4 max-w-4xl">
             <button
               onClick={() => setStep(3)}
@@ -147,7 +151,7 @@ export default function EnregistrerMonVehiculePage() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              &lt; Retour
+              Précédent
             </button>
             <Button className="!py-2 !text-base sm:!py-3">Valider</Button>
           </div>

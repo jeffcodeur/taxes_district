@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import TextField from "../../../../components/ui/TextField";
-import RadioGroup from "../../../../components/ui/RadioGroup";
 import FileUploadField from "../../../../components/ui/FileUploadField";
+import RadioGroup from "../../../../components/ui/RadioGroup";
+import PhoneField from "../../../../components/ui/PhoneField";
 
 export default function ProprietaireInformations() {
   const [typePersonne, setTypePersonne] = useState("physique");
@@ -47,21 +48,11 @@ export default function ProprietaireInformations() {
               placeholder=""
               required
             />
-            <div>
-              <label className="text-sm font-bold sm:text-xl mb-4 block">Numéro de téléphone</label>
-              <div className="flex items-center gap-3 mt-4">
-                <div className="flex items-center gap-2 px-4 py-4 bg-[#F7F7F7] rounded-lg sm:py-5 shrink-0">
-                  <img src="/images/ci.png" alt="Côte d'Ivoire" className="w-6 h-6 object-cover" />
-                  <span className="text-base font-medium sm:text-lg">+225</span>
-                </div>
-                <input
-                  type="tel"
-                  id="telephone"
-                  className="flex-1 rounded-lg border-0 bg-[#F7F7F7] px-4 py-4 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 sm:px-6 sm:py-5 sm:text-lg"
-                  placeholder=""
-                />
-              </div>
-            </div>
+            <PhoneField
+              id="telephone"
+              label="Numéro de téléphone"
+              required
+            />
           </div>
 
           <div>
@@ -91,21 +82,11 @@ export default function ProprietaireInformations() {
               placeholder=""
               required
             />
-            <div>
-              <label className="text-sm font-bold sm:text-xl mb-4 block">Numéro de téléphone</label>
-              <div className="flex items-center gap-3 mt-4">
-                <div className="flex items-center gap-2 px-4 py-4 bg-[#F7F7F7] rounded-lg sm:py-5 shrink-0">
-                  <img src="/images/ci.png" alt="Côte d'Ivoire" className="w-6 h-6 object-cover" />
-                  <span className="text-base font-medium sm:text-lg">+225</span>
-                </div>
-                <input
-                  type="tel"
-                  id="telephone-entreprise"
-                  className="flex-1 rounded-lg border-0 bg-[#F7F7F7] px-4 py-4 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 sm:px-6 sm:py-5 sm:text-lg"
-                  placeholder=""
-                />
-              </div>
-            </div>
+            <PhoneField
+              id="telephone-entreprise"
+              label="Numéro de téléphone"
+              required
+            />
           </div>
 
           <div>
