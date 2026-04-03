@@ -1,28 +1,27 @@
+"use client";
+
 import TextField from "../../../../components/ui/TextField";
+import SelectField from "../../../../components/ui/SelectField";
 import { useState } from "react";
 
 interface PersonneLiee {
   id: string;
-  nom: string;
-  prenoms: string;
+  nomPrenoms: string;
+  role: string;
   telephone: string;
-  email: string;
-  relation: string;
 }
 
 export default function PersonnesLiees() {
   const [personnes, setPersonnes] = useState<PersonneLiee[]>([
-    { id: "1", nom: "", prenoms: "", telephone: "", email: "", relation: "" }
+    { id: "1", nomPrenoms: "", role: "", telephone: "" }
   ]);
 
   const ajouterPersonne = () => {
     const nouvellePersonne: PersonneLiee = {
       id: Date.now().toString(),
-      nom: "",
-      prenoms: "",
-      telephone: "",
-      email: "",
-      relation: ""
+      nomPrenoms: "",
+      role: "",
+      telephone: ""
     };
     setPersonnes([...personnes, nouvellePersonne]);
   };
@@ -42,9 +41,9 @@ export default function PersonnesLiees() {
   return (
     <div className="space-y-8">
       {personnes.map((personne, index) => (
-        <div key={personne.id} className="rounded-lg border border-gray-200 p-6">
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">
+        <div key={personne.id} className="space-y-6 pb-8 border-b border-gray-200 last:border-b-0 last:pb-0">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-bold text-primary">
               Personne {index + 1}
             </h3>
             {personnes.length > 1 && (
@@ -58,60 +57,50 @@ export default function PersonnesLiees() {
             )}
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-16 md:grid-cols-2">
             <TextField
-              id={`nom-${personne.id}`}
-              label="Nom"
-              placeholder="Ex: KONAN"
-              value={personne.nom}
-              onChange={(e) => mettreAJourPersonne(personne.id, 'nom', e.target.value)}
-              className="mb-8 sm:mb-10"
+              id={`nom-prenoms-${personne.id}`}
+              label="Nom et prénoms"
+              placeholder=""
+              value={personne.nomPrenoms}
+              onChange={(e) => mettreAJourPersonne(personne.id, 'nomPrenoms', e.target.value)}
               required
             />
-            <TextField
-              id={`prenoms-${personne.id}`}
-              label="Prénoms"
-              placeholder="Ex: YAO JEAN"
-              value={personne.prenoms}
-              onChange={(e) => mettreAJourPersonne(personne.id, 'prenoms', e.target.value)}
-              className="mb-8 sm:mb-10"
-              required
-            />
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <TextField
-              id={`telephone-${personne.id}`}
-              label="Numéro de téléphone"
-              placeholder="Ex: 00225012345678"
-              type="tel"
-              value={personne.telephone}
-              onChange={(e) => mettreAJourPersonne(personne.id, 'telephone', e.target.value)}
-              className="mb-8 sm:mb-10"
-              required
-            />
-            <TextField
-              id={`email-${personne.id}`}
-              label="Adresse email"
-              placeholder="Ex: nom@example.com"
-              type="email"
-              value={personne.email}
-              onChange={(e) => mettreAJourPersonne(personne.id, 'email', e.target.value)}
-              className="mb-8 sm:mb-10"
-              required
+            <SelectField
+              id={`role-${personne.id}`}
+              label="Rôle"
+              value={personne.role}
+              onChange={(e) => mettreAJourPersonne(personne.id, 'role', e.target.value)}
+              options={[
+                { value: "", label: "" },
+                { value: "conducteur-principal", label: "Conducteur principal" },
+                { value: "conducteur-secondaire", label: "Conducteur secondaire" },
+                { value: "gestionnaire", label: "Gestionnaire" }
+              ]}
             />
           </div>
 
           <div>
-            <TextField
-              id={`relation-${personne.id}`}
-              label="Relation avec le véhicule"
-              placeholder="Ex: Conducteur principal, Conducteur secondaire, Gestionnaire, etc."
-              value={personne.relation}
-              onChange={(e) => mettreAJourPersonne(personne.id, 'relation', e.target.value)}
-              className="mb-8 sm:mb-10"
-              required
-            />
+            <label className="text-sm font-bold sm:text-xl mb-4 block">
+              Numéro de téléphone{" "}
+              <span className="text-xs font-normal text-gray-500">
+                (un lien sera envoyé par sms sur le numéro saisi pour la confirmation de la personne)
+              </span>
+            </label>
+            <div className="flex items-center gap-3 mt-4">
+              <div className="flex items-center gap-2 px-4 py-4 bg-[#F7F7F7] rounded-lg sm:py-5 shrink-0">
+                <img src="/images/ci.png" alt="Côte d'Ivoire" className="w-6 h-6 object-cover" />
+                <span className="text-base font-medium sm:text-lg">+225</span>
+              </div>
+              <input
+                type="tel"
+                id={`telephone-${personne.id}`}
+                value={personne.telephone}
+                onChange={(e) => mettreAJourPersonne(personne.id, 'telephone', e.target.value)}
+                className="flex-1 rounded-lg border-0 bg-[#F7F7F7] px-4 py-4 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 sm:px-6 sm:py-5 sm:text-lg"
+                placeholder=""
+              />
+            </div>
           </div>
         </div>
       ))}
@@ -119,7 +108,7 @@ export default function PersonnesLiees() {
       <button
         type="button"
         onClick={ajouterPersonne}
-        className="w-full rounded-lg border-2 border-dashed border-gray-300 py-4 text-center text-sm font-medium text-gray-600 hover:border-gray-400 hover:text-gray-800 transition"
+        className="inline-flex items-center gap-2 rounded-lg border-2 border-[#F97316] bg-white px-6 py-3 text-base font-semibold text-[#F97316] hover:bg-orange-50 transition"
       >
         + Ajouter une personne
       </button>

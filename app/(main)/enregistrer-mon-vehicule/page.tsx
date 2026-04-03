@@ -8,6 +8,7 @@ import Button from "../../../components/ui/Button";
 import VehiculeInformations from "./_components/VehiculeInformations";
 import ProprietaireInformations from "./_components/ProprietaireInformations";
 import PersonnesLiees from "./_components/PersonnesLiees";
+import Resume from "./_components/Resume";
 import Stepper from "./_components/Stepper";
 import TextField from "../../../components/ui/TextField";
 
@@ -86,7 +87,7 @@ export default function EnregistrerMonVehiculePage() {
         </>
       )}
 
-      {step >= 1 && (
+      {step >= 1 && step <= 3 && (
         <>
           <div className="my-4">
             <Stepper steps={steps} currentStep={step} />
@@ -102,7 +103,7 @@ export default function EnregistrerMonVehiculePage() {
 
           {/* Formulaires */}
           <div className="px-4 sm:px-6">
-            <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-4 py-8 sm:my-12 sm:px-6 sm:py-12">
+            <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-12 py-8 sm:my-12 sm:px-14 sm:py-12">
 
               {step === 1 && <VehiculeInformations />}
 
@@ -110,28 +111,47 @@ export default function EnregistrerMonVehiculePage() {
 
               {step === 3 && <PersonnesLiees />}
 
-              {/* Navigation */}
-              <div className="mt-8 flex items-center justify-between gap-4">
-                <button
-                  onClick={() => setStep(step - 1)}
-                  className="text-xl font-medium text-gray-500 hover:text-gray-700 transition flex items-center gap-2"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  Précédent
-                </button>
-                {step < 3 && (
-                  <Button onClick={() => setStep(step + 1)}>Suivant</Button>
-                )}
-                {step === 3 && (
-                  <Button>Soumettre</Button>
-                )}
-              </div>
-
             </section>
+
+            {/* Navigation */}
+            <div className="mx-auto mt-8 mb-8 flex items-center justify-between gap-4 max-w-4xl">
+              <button
+                onClick={() => setStep(step - 1)}
+                className="text-xl font-medium text-gray-500 hover:text-gray-700 transition flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                {step === 3 ? "< Retour" : "Précédent"}
+              </button>
+              {step <= 3 && (
+                <Button onClick={() => setStep(step + 1)} className="!py-2 !text-base sm:!py-3">Suivant</Button>
+              )}
+            </div>
           </div>
         </>
+      )}
+
+      {step === 4 && (
+        <div className="px-4 sm:px-6">
+          <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-12 py-8 sm:my-12 sm:px-14 sm:py-12">
+            <Resume />
+          </section>
+
+          {/* Navigation */}
+          <div className="mx-auto mt-8 mb-8 flex items-center justify-between gap-4 max-w-4xl">
+            <button
+              onClick={() => setStep(3)}
+              className="text-xl font-medium text-gray-500 hover:text-gray-700 transition flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              &lt; Retour
+            </button>
+            <Button className="!py-2 !text-base sm:!py-3">Valider</Button>
+          </div>
+        </div>
       )}
 
       

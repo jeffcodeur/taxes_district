@@ -34,16 +34,15 @@ export default function FileUploadField({
     <div className={className}>
       <label className="text-sm font-bold sm:text-xl mb-4 block">{label}</label>
       <div 
-        className="rounded-xl p-8 text-center cursor-pointer hover:bg-gray-100 transition-colors bg-[#F3F3F3]"
+        className="flex items-center justify-center rounded-xl p-8 text-center cursor-pointer hover:bg-gray-100 transition-colors bg-[#F3F3F3] h-[137px]"
         onClick={() => document.getElementById(id)?.click()}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        <div className="flex items-center justify-center gap-2 text-xl text-gray-400 mb-4">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex items-center justify-center gap-2 text-xl text-gray-700">
+          <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-          </svg> Cliquez ici pour Joindre <span className="font-semibold text-gray-900">votre carte</span> grise ou glissez-déposer
-
+          </svg> Cliquez ici pour Joindre <span className="font-semibold text-gray-700">votre carte</span> grise ou glissez-déposer
         </div>
 
         <input

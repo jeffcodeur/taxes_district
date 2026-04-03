@@ -46,7 +46,7 @@ export default function RadioGroup({
             <style jsx>{`
               input[type="radio"]:checked {
                 background-color: #F97316;
-                border-color: #F97316;
+                box-shadow: inset 0 0 0 3px white;
               }
             `}</style>
             <label htmlFor={option.id} className="text-base text-gray-700">
