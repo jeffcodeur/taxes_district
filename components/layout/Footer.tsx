@@ -57,7 +57,7 @@ export default function Footer() {
             </p>
           </div>
           <p className="mt-3 text-sm text-gray-600 leading-5">
-            Plateforme officielle de gestion des taxes du District autonome d'Abidjan.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla  rhoncus orci, eu eleifend neque pellentesque non. 
           </p>
         </div>
 
