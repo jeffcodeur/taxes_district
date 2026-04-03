@@ -34,7 +34,7 @@ return (
     <section className="max-w-7xl mx-auto px-6 pt-10 pb-16 md:pb-20 text-center">
         <h1
             className="max-w-[980px] mx-auto text-center font-bold text-4xl leading-tight tracking-[-0.02em] text-primary md:text-6xl md:leading-tight">
-            Service de paiement des<br></br>
+            Service de paiement des<br />
             taxes du District Autonome d&apos;Abidjan
         </h1>
         <p className="max-w-[1050px] mx-auto mt-6 text-base text-[#3A4660] leading-relaxed md:text-lg md:leading-relaxed">
@@ -70,7 +70,7 @@ return (
         </div>
 
         <div className="mt-12 text-center">
-            <button className="inline-flex items-center gap-2 rounded-lg border border-primary px-8 py-3 text-base font-semibold text-primary hover:bg-primary/5 transition">
+            <button type="button" className="inline-flex items-center gap-2 rounded-lg border border-primary px-8 py-3 text-base font-semibold text-primary hover:bg-primary/5 transition">
                 Voir toute les taxes
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

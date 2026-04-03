@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import TextField from "../../../components/ui/TextField";
 
 export default function LoginPage() {
@@ -87,12 +87,12 @@ export default function LoginPage() {
           <div className="mt-8">
             <p className="text-[#757575] text-lg font-light">
               Mot de passe oublié ?{" "}
-              <a
+              <Link
                 href="#"
                 className="font-bold text-primary transition-all duration-300 ease-out hover:opacity-80"
               >
                 réinitialiser le
-              </a>
+              </Link>
             </p>
           </div>
         </div>

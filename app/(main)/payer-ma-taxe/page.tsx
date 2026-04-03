@@ -41,7 +41,6 @@ export default function PayerMaTaxePage() {
         <>
           <SectionTitle
             title={TITRE_TAXE}
-            subtitle=""
             sectionClassName="max-w-3xl py-8"
             titleClassName="text-title"
             subtitleClassName="font-normal"
@@ -79,7 +78,7 @@ export default function PayerMaTaxePage() {
           <SectionTitle
             title={TITRE_TAXE}
             subtitle="Janvier - Février - Mars"
-            sepatorText="Période"
+            separatorText="Période"
             sectionClassName="max-w-3xl py-8"
             titleClassName="text-title"
             subtitleClassName="font-normal"
@@ -100,23 +99,23 @@ export default function PayerMaTaxePage() {
                   label="Plaque d'immatriculation"
                   value={plaque}
                   readOnly
-                  inputClassName="border border-[#F97316] !bg-[rgba(254,236,217,0.23)]"
+                  inputClassName="border border-accent !bg-[rgba(254,236,217,0.23)]"
                 />
                 <TextField
                   id="modele"
                   label="Modèle du véhicule"
                   value={modele}
                   onChange={(e) => setModele(e.target.value)}
-                  inputClassName="border border-[#F97316] !bg-[rgba(254,236,217,0.23)]"
+                  inputClassName="border border-accent !bg-[rgba(254,236,217,0.23)]"
                 />
               </div>
 
-              <div className="bg-orange-50 border border-[#F97316] rounded-lg p-6 flex items-center justify-between">
+              <div className="bg-orange-50 border border-accent rounded-lg p-6 flex items-center justify-between">
                 <div>
                   <p className="text-base font-bold text-gray-900 mb-1">Somme restante à payer</p>
                   <p className="text-sm text-gray-600">Période 04/2025 - 06/2025</p>
                 </div>
-                <p className="text-3xl font-bold text-[#F97316]">25 000 FCFA</p>
+                <p className="text-3xl font-bold text-accent">25 000 FCFA</p>
               </div>
 
               <div className="pt-4 flex justify-end">

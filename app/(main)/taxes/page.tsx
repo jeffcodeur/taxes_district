@@ -15,10 +15,8 @@ export default function TaxesPage() {
 
       <SectionTitle
         title="Choisir la catégorie de votre taxe"
-        subtitle=""
         sectionClassName="max-w-4xl py-8"
         titleClassName="text-title"
-        subtitleClassName="font-normal"
       />
 
     </>

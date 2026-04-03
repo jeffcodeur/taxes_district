@@ -34,7 +34,12 @@ export default function RadioGroup({
               value={option.value}
               checked={selectedValue === option.value}
               onChange={(e) => onChange?.(e.target.value)}
-              className="w-[25px] h-[25px] cursor-pointer appearance-none rounded-full border-4 border-[#CCD6ED] checked:bg-[#F97316] checked:border-[#F97316] checked:[box-shadow:inset_0_0_0_3px_white] focus:outline-none focus:ring-2 focus:ring-primary/20"
+              className="w-[25px] h-[25px] cursor-pointer appearance-none rounded-full border-4 border-[#CCD6ED] focus:outline-none focus:ring-2 focus:ring-primary/20"
+              style={{
+                backgroundColor: selectedValue === option.value ? '#FF772C' : 'white',
+                borderColor: selectedValue === option.value ? '#FF772C' : '#CCD6ED',
+                boxShadow: selectedValue === option.value ? 'inset 0 0 0 3px white' : 'none'
+              }}
             />
             <label htmlFor={option.id} className="text-base text-gray-700">
               {option.label}

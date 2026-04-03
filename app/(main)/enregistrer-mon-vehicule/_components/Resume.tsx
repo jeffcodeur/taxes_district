@@ -1,19 +1,5 @@
-"use client";
-
 import type { VehiculeData, ProprietaireData, PersonneLiee } from "./types";
-
-const readOnlyInputClass =
-  "w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700 bg-[rgba(254,236,217,0.23)]";
-const labelClass = "text-base font-semibold text-gray-900 block mb-3";
-
-function ReadOnlyField({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <label className={labelClass}>{label}</label>
-      <input type="text" value={value} readOnly className={readOnlyInputClass} />
-    </div>
-  );
-}
+import ReadOnlyField from "../../../../components/ui/ReadOnlyField";
 
 type ResumeProps = {
   plaque: string;
@@ -26,7 +12,7 @@ export default function Resume({ plaque, vehicule, proprietaire, personnes }: Re
   return (
     <>
       <div className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
-        <h2 className="text-2xl font-bold text-[#F97316]">Informations du véhicule</h2>
+        <h2 className="text-2xl font-bold text-accent">Informations du véhicule</h2>
 
         <ReadOnlyField label="Plaque d'immatriculation" value={plaque} />
 
@@ -85,7 +71,7 @@ export default function Resume({ plaque, vehicule, proprietaire, personnes }: Re
 
       {personnes.map((personne, index) => (
         <div key={personne.id} className="bg-white rounded-xl p-8 mb-6 sm:p-10 space-y-8">
-          <h2 className="text-2xl font-bold text-[#F97316]">Personne {index + 1}</h2>
+          <h2 className="text-2xl font-bold text-accent">Personne {index + 1}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <ReadOnlyField label="Nom et prénoms" value={personne.nomPrenoms} />
             <ReadOnlyField label="Rôle" value={personne.role} />

@@ -1,5 +1,4 @@
-"use client";
-
+import Breadcrumb from "../../../components/layout/Breadcrumb";
 import SectionTitle from "../../../components/layout/SectionTitle";
 import Button from "../../../components/ui/Button";
 import TextField from "../../../components/ui/TextField";
@@ -10,7 +9,6 @@ export default function ContactPage() {
     <>
       <SectionTitle
         title="Contact"
-        subtitle=""
         titleClassName="text-title"
         sectionClassName="my-12"
       />

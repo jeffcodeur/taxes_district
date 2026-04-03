@@ -31,9 +31,8 @@ const stepTitles = {
   3: {
     title: "Saisissez les informations des personnes liées au véhicule",
     subtitle: "Ces personnes seront liées au véhicule et pourront s'identifier pour suivre l'activité du véhicule sur la plateforme du DAA.",
-  },
+  }
 };
-
 const initialVehicule: VehiculeData = {
   marque: "",
   modele: "",
@@ -81,7 +80,7 @@ export default function EnregistrerMonVehiculePage() {
 
   const handleValider = () => {
     const payload = { plaque, vehicule, proprietaire, personnes };
-    console.info("Soumission du formulaire :", payload);
+    void payload;
   };
 
   return (
@@ -169,7 +168,6 @@ export default function EnregistrerMonVehiculePage() {
         <div className="px-4 sm:px-6">
           <SectionTitle
             title="Résumé"
-            subtitle=""
             sectionClassName="py-12"
             titleClassName="text-title"
           />
