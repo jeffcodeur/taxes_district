@@ -8,6 +8,16 @@ import PhoneField from "../../../components/ui/PhoneField";
 import Button from "../../../components/ui/Button";
 import IconButton from "../../../components/ui/IconButton";
 
+const TITRE_TAXE = "Taxe sur les taxis interurbains ou ceux dotés d'un compteur";
+
+function DownloadIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+    </svg>
+  );
+}
+
 export default function PayerMaTaxePage() {
   const [step, setStep] = useState(1);
   const [plaque, setPlaque] = useState("");
@@ -30,10 +40,10 @@ export default function PayerMaTaxePage() {
       {step === 1 && (
         <>
           <SectionTitle
-            title="Taxe sur les taxis interurbains ou ceux dotés d'un compteur"
+            title={TITRE_TAXE}
             subtitle=""
             sectionClassName="max-w-3xl py-8"
-            titleClassName="text-[#374151]"
+            titleClassName="text-title"
             subtitleClassName="font-normal"
           />
 
@@ -67,11 +77,11 @@ export default function PayerMaTaxePage() {
       {step === 2 && (
         <>
           <SectionTitle
-            title="Taxe sur les taxis interurbains ou ceux dotés d'un compteur"
+            title={TITRE_TAXE}
             subtitle="Janvier - Février - Mars"
             sepatorText="Période"
             sectionClassName="max-w-3xl py-8"
-            titleClassName="text-[#374151]"
+            titleClassName="text-title"
             subtitleClassName="font-normal"
           />
 
@@ -85,26 +95,20 @@ export default function PayerMaTaxePage() {
               </div>
 
               <div className="grid gap-6 md:grid-cols-2">
-                <div>
-                  <label className="text-base font-semibold text-gray-900 block mb-3">Plaque d'immatriculation</label>
-                  <input
-                    type="text"
-                    value={plaque}
-                    readOnly
-                    className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
-                    style={{ background: 'rgba(254, 236, 217, 0.23)' }}
-                  />
-                </div>
-                <div>
-                  <label className="text-base font-semibold text-gray-900 block mb-3">Modèle du véhicule</label>
-                  <input
-                    type="text"
-                    value={modele}
-                    onChange={(e) => setModele(e.target.value)}
-                    className="w-full rounded-lg border border-[#F97316] px-4 py-4 text-base text-gray-700"
-                    style={{ background: 'rgba(254, 236, 217, 0.23)' }}
-                  />
-                </div>
+                <TextField
+                  id="plaque-display"
+                  label="Plaque d'immatriculation"
+                  value={plaque}
+                  readOnly
+                  inputClassName="border border-[#F97316] !bg-[rgba(254,236,217,0.23)]"
+                />
+                <TextField
+                  id="modele"
+                  label="Modèle du véhicule"
+                  value={modele}
+                  onChange={(e) => setModele(e.target.value)}
+                  inputClassName="border border-[#F97316] !bg-[rgba(254,236,217,0.23)]"
+                />
               </div>
 
               <div className="bg-orange-50 border border-[#F97316] rounded-lg p-6 flex items-center justify-between">
@@ -127,10 +131,10 @@ export default function PayerMaTaxePage() {
       {step === 3 && (
         <>
           <SectionTitle
-            title="Taxe sur les taxis interurbains ou ceux dotés d'un compteur"
+            title={TITRE_TAXE}
             subtitle="Confirmation de paiement"
             sectionClassName="max-w-3xl py-8"
-            titleClassName="text-[#374151]"
+            titleClassName="text-title"
             subtitleClassName="font-normal text-gray-600 text-xl"
           />
 
@@ -153,16 +157,12 @@ export default function PayerMaTaxePage() {
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <IconButton variant="primary">
                   Attestation d&apos;acquittement
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
+                  <DownloadIcon />
                 </IconButton>
 
                 <IconButton variant="secondary">
                   Macaron
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
+                  <DownloadIcon />
                 </IconButton>
               </div>
             </div>

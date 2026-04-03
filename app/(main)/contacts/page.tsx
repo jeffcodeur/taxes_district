@@ -11,7 +11,7 @@ export default function ContactPage() {
       <SectionTitle
         title="Contact"
         subtitle=""
-        titleClassName="text-[#374151]"
+        titleClassName="text-title"
         sectionClassName="my-12"
       />
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
                 District autonome d&apos;Abidjan
               </h3>
 
-              <p className="mt-8 text-xl leading-[1.25] tracking-[-0.02em]">
+              <p className="mt-8 text-xl leading-tight tracking-[-0.02em]">
                 Lorem ipsum dolor sit amet, consectetur <br></br>adipiscing elit. Ut fringilla rhoncus orci,
                 eu eleifend neque pellentesque non.
               </p>

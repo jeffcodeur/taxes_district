@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isActive, navLinks } from "../../lib/navigation";
 import {
   FaYoutube,
   FaLinkedinIn,
@@ -10,12 +11,6 @@ import {
   FaXTwitter,
   FaInstagram,
 } from "react-icons/fa6";
-
-const navLinks = [
-  { href: "/", label: "Accueil" },
-  { href: "/taxes", label: "Taxes" },
-  { href: "/contacts", label: "Contacts" },
-];
 
 const legalLinks = [
   { href: "/cgu", label: "Conditions générales d'utilisation" },
@@ -33,9 +28,6 @@ const socialLinks = [
 
 export default function Footer() {
   const pathname = usePathname();
-
-  const isActive = (href: string) =>
-    href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
     <footer className="footer-section mt-auto">
@@ -67,9 +59,9 @@ export default function Footer() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  aria-current={isActive(link.href) ? "page" : undefined}
+                  aria-current={isActive(pathname, link.href) ? "page" : undefined}
                   className={`transition ${
-                    isActive(link.href)
+                    isActive(pathname, link.href)
                       ? "text-primary font-semibold"
                       : "hover:text-primary"
                   }`}

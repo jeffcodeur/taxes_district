@@ -1,5 +1,31 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa6";
+import TaxCard, { type TaxCardProps } from "../../components/ui/TaxCard";
+
+const taxCards: TaxCardProps[] = [
+  {
+    badge: "Transporteur",
+    badgeClassName: "bg-[#FFF4E6] text-[#FF8C00]",
+    title: "Taxe sur les taxis interurbains, stationnement, parking etc.",
+    imageSrc: "/images/car.svg",
+    imageAlt: "Transporteur",
+  },
+  {
+    badge: "Publicité",
+    badgeClassName: "bg-[#FFF9E6] text-[#FFB800]",
+    title: "Pub sur support mobile, banderole",
+    imageSrc: "/images/support.svg",
+    imageAlt: "Publicité",
+  },
+  {
+    badge: "Autres",
+    badgeClassName: "bg-[#E6F4FF] text-[#0076D0]",
+    title: "Entreposage et transport des viandes, Artisanat",
+    imageSrc: "/images/other.svg",
+    imageAlt: "Autres",
+  },
+];
 
 export default function Home() {
 return (
@@ -38,50 +64,9 @@ return (
         </h2>
 
         <div className="mt-16 flex flex-col md:flex-row gap-8 items-stretch">
-            <article className="relative flex flex-1 w-full flex-col bg-white rounded-lg p-6 min-h-[340px]">
-                <span className="inline-block w-fit rounded-full bg-[#FFF4E6] px-4 py-1.5 text-sm font-semibold text-[#FF8C00]">
-                    Transporteur
-                </span>
-                <h3 className="mt-4 text-2xl font-bold leading-tight text-[#1F2A44]">
-                    Taxe sur les taxis interurbains, stationnement, parking etc.
-                </h3>
-                <div className="mt-auto pb-2">
-                    <img src="/images/car.svg" alt="Transporteur" className="w-24 h-24" />
-                </div>
-                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" className="absolute bottom-6 right-6 text-gray-300">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </article>
-
-            <article className="relative flex flex-1 w-full flex-col bg-white rounded-lg p-6 min-h-[340px]">
-                <span className="inline-block w-fit rounded-full bg-[#FFF9E6] px-4 py-1.5 text-sm font-semibold text-[#FFB800]">
-                    Publicité
-                </span>
-                <h3 className="mt-4 text-2xl font-bold leading-tight text-[#1F2A44]">
-                    Pub sur support mobile, banderole
-                </h3>
-                <div className="mt-auto pb-2">
-                    <img src="/images/support.svg" alt="Publicité" className="w-24 h-24" />
-                </div>
-                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" className="absolute bottom-6 right-6 text-gray-300">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </article>
-
-            <article className="relative flex flex-1 w-full flex-col bg-white rounded-lg p-6 min-h-[340px]">
-                <span className="inline-block w-fit rounded-full bg-[#E6F4FF] px-4 py-1.5 text-sm font-semibold text-[#0076D0]">
-                    Autres
-                </span>
-                <h3 className="mt-4 text-2xl font-bold leading-tight text-[#1F2A44]">
-                    Entreposage et transport des viandes, Artisanat
-                </h3>
-                <div className="mt-auto pb-2">
-                    <img src="/images/other.svg" alt="Autres" className="w-24 h-24" />
-                </div>
-                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" className="absolute bottom-6 right-6 text-gray-300">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </article>
+            {taxCards.map((card) => (
+              <TaxCard key={card.badge} {...card} />
+            ))}
         </div>
 
         <div className="mt-12 text-center">
@@ -112,9 +97,11 @@ return (
                 }}
             >
                 <div className="relative flex items-center justify-center gap-4 md:gap-6">
-                    <img 
-                        src="/images/vector.svg" 
-                        alt="Bookmark icon" 
+                    <Image
+                        src="/images/vector.svg"
+                        alt="Bookmark icon"
+                        width={56}
+                        height={64}
                         className="shrink-0 w-12 h-14 md:w-14 md:h-16"
                     />
 
@@ -142,22 +129,28 @@ return (
             </h3>
             <div className="mt-8 flex items-start gap-6">
               <div className="shrink-0">
-                <img
+                <Image
                   src="/images/ci-identite.png"
                   alt="Côte d'Ivoire Identité"
-                  className="w-32 h-32 object-contain"
+                  width={128}
+                  height={128}
+                  className="object-contain"
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <img
+                <Image
                   src="/images/playstore.png"
                   alt="Google Play"
-                  className="w-44 h-auto object-contain"
+                  width={176}
+                  height={52}
+                  className="h-auto object-contain"
                 />
-                <img
+                <Image
                   src="/images/appstore.png"
                   alt="App Store"
-                  className="w-44 h-auto object-contain"
+                  width={176}
+                  height={52}
+                  className="h-auto object-contain"
                 />
               </div>
             </div>
@@ -170,10 +163,12 @@ return (
               District Autonome d&apos;Abidjan
             </h3>
             <div className="mt-8">
-              <img
+              <Image
                 src="/images/store.png"
                 alt="Antenne du District"
-                className="w-40 h-40 object-contain"
+                width={160}
+                height={160}
+                className="object-contain"
               />
             </div>
           </article>

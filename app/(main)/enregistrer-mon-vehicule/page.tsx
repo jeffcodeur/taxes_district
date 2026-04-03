@@ -11,6 +11,7 @@ import PersonnesLiees from "./_components/PersonnesLiees";
 import Resume from "./_components/Resume";
 import Stepper from "./_components/Stepper";
 import TextField from "../../../components/ui/TextField";
+import type { VehiculeData, ProprietaireData, PersonneLiee } from "./_components/types";
 
 const steps = [
   { id: 1, label: "1- Informations du véhicule" },
@@ -29,12 +30,59 @@ const stepTitles = {
   },
   3: {
     title: "Saisissez les informations des personnes liées au véhicule",
-    subtitle: "Ces personnes seront liées au véhicule et pourront s’identifier pour suivre l’activité du véhicule sur la plateforme du DAA.",
+    subtitle: "Ces personnes seront liées au véhicule et pourront s'identifier pour suivre l'activité du véhicule sur la plateforme du DAA.",
   },
 };
 
+const initialVehicule: VehiculeData = {
+  marque: "",
+  modele: "",
+  dateMiseEnCirculation: "",
+  numeroCGrise: "",
+  utilisation: "",
+  preciser: "",
+  carteGrise: null,
+};
+
+const initialProprietaire: ProprietaireData = {
+  typePersonne: "physique",
+  nom: "",
+  prenoms: "",
+  numeroCNI: "",
+  telephone: "",
+  email: "",
+  cniFile: null,
+  numeroRCCM: "",
+  rccmFile: null,
+};
+
+function BoutonPrecedent({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="text-xl font-medium text-gray-500 hover:text-gray-700 transition flex items-center gap-2"
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      </svg>
+      Précédent
+    </button>
+  );
+}
+
 export default function EnregistrerMonVehiculePage() {
   const [step, setStep] = useState(0);
+  const [plaque, setPlaque] = useState("");
+  const [vehicule, setVehicule] = useState<VehiculeData>(initialVehicule);
+  const [proprietaire, setProprietaire] = useState<ProprietaireData>(initialProprietaire);
+  const [personnes, setPersonnes] = useState<PersonneLiee[]>([
+    { id: "1", nomPrenoms: "", role: "", telephone: "" },
+  ]);
+
+  const handleValider = () => {
+    const payload = { plaque, vehicule, proprietaire, personnes };
+    console.info("Soumission du formulaire :", payload);
+  };
 
   return (
     <>
@@ -45,7 +93,6 @@ export default function EnregistrerMonVehiculePage() {
         ]}
       />
 
-     
       {step === 0 && (
         <>
           <SectionTitle
@@ -80,6 +127,8 @@ export default function EnregistrerMonVehiculePage() {
                 label="Numero de plaque d'immatriculation"
                 placeholder="AA - 020 - AA"
                 className="mb-8 sm:mb-10"
+                value={plaque}
+                onChange={(e) => setPlaque(e.target.value)}
               />
               <Button onClick={() => setStep(1)}>Commencer</Button>
             </section>
@@ -97,35 +146,20 @@ export default function EnregistrerMonVehiculePage() {
             title={stepTitles[step as 1 | 2 | 3].title}
             subtitle={stepTitles[step as 1 | 2 | 3].subtitle}
             sectionClassName="max-w-5xl py-2"
-            titleClassName="text-[#374151]"
+            titleClassName="text-title"
             subtitleClassName="font-normal"
           />
 
           <div className="px-4 sm:px-6">
             <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-12 py-8 sm:my-12 sm:px-14 sm:py-12">
-
-              {step === 1 && <VehiculeInformations />}
-
-              {step === 2 && <ProprietaireInformations />}
-
-              {step === 3 && <PersonnesLiees />}
-
+              {step === 1 && <VehiculeInformations data={vehicule} onChange={setVehicule} />}
+              {step === 2 && <ProprietaireInformations data={proprietaire} onChange={setProprietaire} />}
+              {step === 3 && <PersonnesLiees personnes={personnes} onChange={setPersonnes} />}
             </section>
 
-            {/* Navigation */}
             <div className="mx-auto mt-8 mb-8 flex items-center justify-between gap-4 max-w-4xl">
-              <button
-                onClick={() => setStep(step - 1)}
-                className="text-xl font-medium text-gray-500 hover:text-gray-700 transition flex items-center gap-2"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Précédent
-              </button>
-              {step <= 3 && (
-                <Button onClick={() => setStep(step + 1)} className="!py-2 !text-base sm:!py-3">Suivant</Button>
-              )}
+              <BoutonPrecedent onClick={() => setStep(step - 1)} />
+              <Button onClick={() => setStep(step + 1)} className="!py-2 !text-base sm:!py-3">Suivant</Button>
             </div>
           </div>
         </>
@@ -133,32 +167,22 @@ export default function EnregistrerMonVehiculePage() {
 
       {step === 4 && (
         <div className="px-4 sm:px-6">
-           <SectionTitle
-        title="Résumé"
-        subtitle=""
-        sectionClassName="py-12"
-        titleClassName="text-[#374151]"
-      />
-          <section className="mx-auto w-full max-w-4xl rounded-xl ">
-            <Resume />
+          <SectionTitle
+            title="Résumé"
+            subtitle=""
+            sectionClassName="py-12"
+            titleClassName="text-title"
+          />
+          <section className="mx-auto w-full max-w-4xl rounded-xl">
+            <Resume plaque={plaque} vehicule={vehicule} proprietaire={proprietaire} personnes={personnes} />
           </section>
 
           <div className="mx-auto mt-8 mb-8 flex items-center justify-between gap-4 max-w-4xl">
-            <button
-              onClick={() => setStep(3)}
-              className="text-xl font-medium text-gray-500 hover:text-gray-700 transition flex items-center gap-2"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Précédent
-            </button>
-            <Button className="!py-2 !text-base sm:!py-3">Valider</Button>
+            <BoutonPrecedent onClick={() => setStep(3)} />
+            <Button onClick={handleValider} className="!py-2 !text-base sm:!py-3">Valider</Button>
           </div>
         </div>
       )}
-
-      
     </>
   );
 }

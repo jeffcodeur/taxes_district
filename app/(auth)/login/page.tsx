@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Input from "../../../components/ui/Input";
+import TextField from "../../../components/ui/TextField";
 
 export default function LoginPage() {
   return (
@@ -63,17 +63,21 @@ export default function LoginPage() {
             Connexion
           </h1>
           <form onSubmit={(e) => e.preventDefault()}>
-            <Input
+            <TextField
               id="email"
               label="Email"
               type="email"
               placeholder="Votre adresse email"
+              className="mb-8"
+              inputClassName="!bg-white border border-[rgba(20,24,62,0.21)] rounded-[9px] !h-[70px] !py-0"
             />
-            <Input
+            <TextField
               id="password"
               label="Mot de passe"
               type="password"
               placeholder="•• ••• ••• ••"
+              className="mb-8"
+              inputClassName="!bg-white border border-[rgba(20,24,62,0.21)] rounded-[9px] !h-[70px] !py-0"
             />
 
             <button className="w-full h-[80px] bg-primary hover:bg-[#044d8a] text-white font-bold flex items-center justify-center rounded-[6px] gap-[10px] transition duration-200 font-sans text-2xl leading-none tracking-[-0.06em]">

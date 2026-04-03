@@ -1,8 +1,9 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 
 interface PhoneFieldProps {
   id: string;
-  label: string;
+  label: ReactNode;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;

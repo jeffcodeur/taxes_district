@@ -5,20 +5,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FiLock, FiMenu, FiX } from "react-icons/fi";
 import { usePathname } from "next/navigation";
-
-const navLinks = [
-  { href: "/", label: "Accueil" },
-  { href: "/taxes", label: "Taxes" },
-  { href: "/contacts", label: "Contacts" },
-];
+import { isActive, navLinks } from "../../lib/navigation";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
-
-  const isActive = (href: string) =>
-    href === "/" ? pathname === href : pathname.startsWith(href);
 
   // Fermeture menu au resize
   useEffect(() => {
@@ -96,11 +88,11 @@ export default function Header() {
               key={label}
               href={href}
               className={
-                isActive(href)
+                isActive(pathname, href)
                   ? "text-primary font-bold"
                   : "hover:text-primary transition-colors"
               }
-              aria-current={isActive(href) ? "page" : undefined}
+              aria-current={isActive(pathname, href) ? "page" : undefined}
             >
               {label}
             </Link>
@@ -150,11 +142,11 @@ export default function Header() {
               key={label}
               href={href}
               className={`rounded-lg px-3 py-3 text-base font-bold transition-colors ${
-                isActive(href)
+                isActive(pathname, href)
                   ? "bg-primary/10 text-primary"
                   : "text-gray-700 hover:bg-gray-50"
               }`}
-              aria-current={isActive(href) ? "page" : undefined}
+              aria-current={isActive(pathname, href) ? "page" : undefined}
               onClick={() => setMenuOpen(false)}
             >
               {label}
