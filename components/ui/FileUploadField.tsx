@@ -41,10 +41,14 @@ export default function FileUploadField({
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        <div className="flex items-center justify-center gap-2 text-sm sm:text-xl text-gray-700">
-          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-          </svg> Cliquez ici pour Joindre <span className="font-semibold text-gray-700">{customizableText}</span> grise ou glissez-déposer
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-sm sm:text-xl text-gray-700">
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+            </svg>
+            <span>Cliquez ici pour joindre <span className="font-semibold text-gray-700">{customizableText}</span></span>
+          </div>
+          <span className="hidden sm:inline text-gray-400">ou glissez-déposer</span>
         </div>
 
         <input

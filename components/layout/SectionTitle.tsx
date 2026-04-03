@@ -11,13 +11,13 @@ export default function SectionTitle({
   title,
   subtitle,
   separatorText,
-  sectionClassName = "max-w-4xl px-4 sm:px-6",
+  sectionClassName = "max-w-4xl px-3 py-4 sm:px-6 sm:py-8",
   titleClassName = "text-primary",
   subtitleClassName,
 }: SectionTitleProps) {
   return (
     <section
-      className={`mx-auto flex flex-col items-center justify-center text-center ${sectionClassName}`}
+      className={`mx-auto px-4 sm:px-0 flex flex-col items-center justify-center text-center ${sectionClassName}`}
     >
       <h2
         className={`font-bold text-3xl leading-[1.2] sm:text-4xl md:text-5xl ${titleClassName}`}

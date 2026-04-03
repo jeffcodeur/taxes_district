@@ -120,12 +120,12 @@ export default function EnregistrerMonVehiculePage() {
               </div>
             </section>
 
-            <section className="mx-auto my-8 w-full max-w-4xl rounded-xl bg-white px-4 py-8 sm:my-12 sm:px-6 sm:py-12">
+            <section className="mx-auto my-6 w-full max-w-4xl rounded-xl bg-white px-4 py-6 sm:my-12 sm:px-6 sm:py-12">
               <TextField
                 id="plaque-immatriculation"
                 label="Numero de plaque d'immatriculation"
                 placeholder="AA - 020 - AA"
-                className="mb-8 sm:mb-10"
+                className="mb-6 sm:mb-10"
                 value={plaque}
                 onChange={(e) => setPlaque(e.target.value)}
               />
@@ -144,19 +144,19 @@ export default function EnregistrerMonVehiculePage() {
           <SectionTitle
             title={stepTitles[step as 1 | 2 | 3].title}
             subtitle={stepTitles[step as 1 | 2 | 3].subtitle}
-            sectionClassName="max-w-5xl py-2"
+            sectionClassName="max-w-5xl py-2 mb-8 sm:mb-12"
             titleClassName="text-title"
             subtitleClassName="font-normal"
           />
 
           <div className="px-4 sm:px-6">
-            <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-12 py-8 sm:my-12 sm:px-14 sm:py-12">
+            <section className="mx-auto w-full max-w-4xl rounded-xl bg-white px-6 py-6 sm:px-14 sm:py-12">
               {step === 1 && <VehiculeInformations data={vehicule} onChange={setVehicule} />}
               {step === 2 && <ProprietaireInformations data={proprietaire} onChange={setProprietaire} />}
               {step === 3 && <PersonnesLiees personnes={personnes} onChange={setPersonnes} />}
             </section>
 
-            <div className="mx-auto mt-8 mb-8 flex items-center justify-between gap-4 max-w-4xl">
+            <div className="mx-auto mt-6 mb-6 flex items-center justify-between gap-4 max-w-4xl">
               <BoutonPrecedent onClick={() => setStep(step - 1)} />
               <Button onClick={() => setStep(step + 1)} className="!py-2 !text-base sm:!py-3">Suivant</Button>
             </div>
@@ -168,14 +168,14 @@ export default function EnregistrerMonVehiculePage() {
         <div className="px-4 sm:px-6">
           <SectionTitle
             title="Résumé"
-            sectionClassName="py-12"
+            sectionClassName="py-4 sm:py-8 mb-2 sm:mb-4"
             titleClassName="text-title"
           />
           <section className="mx-auto w-full max-w-4xl rounded-xl">
             <Resume plaque={plaque} vehicule={vehicule} proprietaire={proprietaire} personnes={personnes} />
           </section>
 
-          <div className="mx-auto mt-8 mb-8 flex items-center justify-between gap-4 max-w-4xl">
+          <div className="mx-auto mt-6 mb-6 flex items-center justify-between gap-4 max-w-4xl">
             <BoutonPrecedent onClick={() => setStep(3)} />
             <Button onClick={handleValider} className="!py-2 !text-base sm:!py-3">Valider</Button>
           </div>

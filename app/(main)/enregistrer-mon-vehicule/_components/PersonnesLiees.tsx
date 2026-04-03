@@ -56,7 +56,7 @@ export default function PersonnesLiees({ personnes, onChange }: Props) {
             )}
           </div>
 
-          <div className="grid gap-16 md:grid-cols-2">
+          <div className="grid gap-6 md:gap-16 md:grid-cols-2">
             <TextField
               id={`nom-prenoms-${personne.id}`}
               label="Nom et prénoms"
