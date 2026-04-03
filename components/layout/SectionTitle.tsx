@@ -15,7 +15,7 @@ export default function SectionTitle({
 }: SectionTitleProps) {
   return (
     <section
-      className={`py-10 sm:py-14 mx-auto flex flex-col items-center justify-center text-center ${sectionClassName}`}
+      className={`mx-auto flex flex-col items-center justify-center text-center ${sectionClassName}`}
     >
       <h2
         className={`font-bold text-3xl leading-[1.2] sm:text-4xl md:text-5xl ${titleClassName}`}

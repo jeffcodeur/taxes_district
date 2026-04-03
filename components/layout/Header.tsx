@@ -81,7 +81,7 @@ export default function Header() {
               className="h-[1.2em] w-auto shrink-0"
             />
             <span className="truncate text-base font-semibold text-gray-700 sm:text-lg md:text-xl">
-              taxes.district.<span className="text-secondary">ci</span>
+              taxes.district<span className="text-secondary">.ci</span>
             </span>
           </div>
         </div>

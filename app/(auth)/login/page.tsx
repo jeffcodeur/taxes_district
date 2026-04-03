@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Input from "../../components/ui/Input";
+import Input from "../../../components/ui/Input";
 
 export default function LoginPage() {
   return (

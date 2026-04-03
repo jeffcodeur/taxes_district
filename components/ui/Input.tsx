@@ -28,7 +28,7 @@ export default function Input({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="w-full h-[70px] border border-[rgba(20,24,62,0.21)] rounded-[9px] bg-white px-4 focus:outline-none focus:border-primary focus:border transition duration-200"
+        className="w-full h-[70px] border border-[rgba(20,24,62,0.21)] rounded-[9px] bg-white px-4 focus:outline focus:border-primary focus:border transition duration-200"
         required
       />
     </div>
