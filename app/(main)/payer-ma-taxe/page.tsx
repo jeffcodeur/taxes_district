@@ -99,23 +99,23 @@ export default function PayerMaTaxePage() {
                   label="Plaque d'immatriculation"
                   value={plaque}
                   readOnly
-                  inputClassName="border border-accent !bg-[rgba(254,236,217,0.23)]"
+                  inputClassName="border border-secondary !bg-[rgba(254,236,217,0.23)]"
                 />
                 <TextField
                   id="modele"
                   label="Modèle du véhicule"
                   value={modele}
                   onChange={(e) => setModele(e.target.value)}
-                  inputClassName="border border-accent !bg-[rgba(254,236,217,0.23)]"
+                  inputClassName="border border-secondary !bg-[rgba(254,236,217,0.23)]"
                 />
               </div>
 
-              <div className="bg-orange-50 border border-accent rounded-lg p-6 flex items-center justify-between">
+              <div className="bg-orange-50 border border-secondary rounded-lg p-6 flex items-center justify-between">
                 <div>
                   <p className="text-base font-bold text-gray-900 mb-1">Somme restante à payer</p>
                   <p className="text-sm text-gray-600">Période 04/2025 - 06/2025</p>
                 </div>
-                <p className="text-3xl font-bold text-accent">25 000 FCFA</p>
+                <p className="text-3xl font-bold text-secondary">25 000 FCFA</p>
               </div>
 
               <div className="pt-4 flex justify-end">
@@ -138,10 +138,10 @@ export default function PayerMaTaxePage() {
           />
 
           <div className="px-4 sm:px-6 mb-12">
-            <section className="mx-auto w-full max-w-3xl rounded-xl bg-white px-8 py-16 sm:px-12 sm:py-20">
+            <section className="mx-auto w-full max-w-3xl rounded-xl bg-white px-8 py-8 sm:px-12 sm:py-10">
               <div className="flex flex-col items-center gap-6">
-                <div className="flex items-center justify-center w-40 h-40 rounded-2xl bg-success/10">
-                  <svg className="w-20 h-20 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center justify-center w-48 h-48 rounded-2xl bg-success/10">
+                  <svg className="w-34 h-34 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -152,14 +152,14 @@ export default function PayerMaTaxePage() {
           </div>
 
           <div className="px-4 sm:px-6 mb-12">
-            <div className="mx-auto w-full max-w-3xl flex justify-center">
+            <div className="mx-auto w-full max-w-3xl">
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                <IconButton variant="primary">
+                <IconButton variant="primary" className="flex-1">
                   Attestation d&apos;acquittement
                   <DownloadIcon />
                 </IconButton>
 
-                <IconButton variant="secondary">
+                <IconButton variant="secondary" className="flex-1">
                   Macaron
                   <DownloadIcon />
                 </IconButton>
