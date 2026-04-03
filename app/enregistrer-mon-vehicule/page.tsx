@@ -13,7 +13,7 @@ export default function EnregistrerMonVehiculePage() {
       <Breadcrumb
         items={[
           { label: "Accueil", href: "/" },
-          { label: "Enregistrer mon véhicule" },
+          { label: "Enregistrer Mon Véhicule" },
         ]}
       />
 
