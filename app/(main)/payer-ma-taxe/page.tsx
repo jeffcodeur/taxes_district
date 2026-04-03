@@ -110,7 +110,7 @@ export default function PayerMaTaxePage() {
                 />
               </div>
 
-              <div className="bg-orange-50 border border-secondary rounded-lg p-6 flex items-center justify-between">
+              <div className="bg-orange-50 border border-secondary rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                   <p className="text-base font-bold text-gray-900 mb-1">Somme restante à payer</p>
                   <p className="text-sm text-gray-600">Période 04/2025 - 06/2025</p>
